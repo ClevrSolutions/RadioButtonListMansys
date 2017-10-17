@@ -1,0 +1,22 @@
+.RadioButtonList input[type="radio"],
+.RadioButtonList input[type="checkbox"] {
+    margin: 0;    
+    margin-top: 3px;
+}
+
+.RadioButtonList span {
+    display: block;
+    margin-right: 30px;
+}
+
+.RadioButtonList .radio > label {
+    width: 100%;    
+}
+
+.radio-inline { 
+    position: relative;
+}
+
+.form-group.hasLabel {
+    margin-left: 0;
+}

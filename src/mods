@@ -1,0 +1,7 @@
+Modifications Mansystems:
+- Added properties for a Free Text selection (For example to add option "Other", and allow the user manually type it)
+- Allow deselecting a radio button
+
+Fixed minor bug:
+- Input ids not unique, index results to "undefined"
+- Fixed (browser) console error regarding property 'children' of a null object
