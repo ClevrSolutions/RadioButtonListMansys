@@ -114,7 +114,9 @@ define([
 
                 this._setup = true;
 
-                mendix.lang.nullExec(callback);
+                if (callback) {
+                    callback();
+                }
             },
 
             _setRadiobuttonOptions: function (callback) {
@@ -127,7 +129,9 @@ define([
                         this._getDataFromDatasource(callback);
                     } else {
                         this._showError("Can\"t retrieve objects because no datasource microflow is specified");
-                        mendix.lang.nullExec(callback);
+                        if (callback) {
+                            callback();
+                        }
                     }
                 }  else {
                     this._updateRendering(callback);
@@ -143,7 +147,9 @@ define([
                     if(!this._locatedInListview) {
                         dojoStyle.set(this.domNode, "display", "none");
                     }
-                    mendix.lang.nullExec(callback);
+                    if (callback) {
+                        callback();
+                    }
                 }
 
                 // Important to clear all validations!
@@ -242,7 +248,9 @@ define([
                         }),
                         error: lang.hitch(this, function (err) {
                             console.error(err);
-                            mendix.lang.nullExec(callback);
+                            if (callback) {
+                                callback();
+                            }
                         })
                     });
                 } else {
@@ -347,7 +355,9 @@ define([
                     }
                 }
 
-                mendix.lang.nullExec(callback);
+                if (callback) {
+                    callback();
+                }
             },
 
             _createLabelNode: function (key, option) {
@@ -467,9 +477,7 @@ define([
                                 actionname: this.onchangeAction,
                                 guids: [this._contextObj.getGuid()]
                             },
-                            store: {
-                                caller: this.mxform
-                            },
+                            origin: this.mxform,
                             error: function (error) {
                                 console.error("RadioButtonList.widget.AttrRadioButtonList._addOnclickToRadiobuttonItem: XAS error executing microflow; " + error.description);
                             }
@@ -490,9 +498,7 @@ define([
                 }
                 mx.data.action({
                     params: params,
-                    store: {
-                        caller: this.mxform
-                    },
+                    origin: this.mxform,
                     callback: function (objs) {
                         if (typeof callback !== "undefined") {
                             callback(objs);

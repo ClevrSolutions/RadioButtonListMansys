@@ -98,7 +98,9 @@ define([
 
             this._setup = true;
 
-            mendix.lang.nullExec(callback);
+            if (callback) {
+                callback();
+            }
         },
 
         resize: function (box) {},
@@ -120,7 +122,9 @@ define([
                 this._createRadiobuttonNodes(callback);
             } else {
                 dojoStyle.set(this.domNode, "display", "none");
-                mendix.lang.nullExec(callback);
+                if (callback) {
+                    callback();
+                }
             }
 
             // Important to clear all validations!
@@ -269,7 +273,9 @@ define([
                 }
             }
 
-            mendix.lang.nullExec(callback);
+            if (callback){
+                callback();
+            }
         },
 
         _createLabelNode: function (key, value) {
