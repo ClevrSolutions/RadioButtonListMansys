@@ -1,5 +1,5 @@
-.RadioButtonList input[type="radio"],
-.RadioButtonList input[type="checkbox"] {
+.RadioButtonList .radio input[type="radio"],
+.RadioButtonList .radio input[type="checkbox"] {
     margin: 0;
     margin-left: -20px;
     margin-top: 3px;
